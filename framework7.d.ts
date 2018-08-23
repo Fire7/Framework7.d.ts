@@ -7,7 +7,7 @@ declare module "framework7" {
     ///
     import * as Dom7 from 'Dom7'
     import * as Template7 from 'Template7'
-    
+
     export { Template7, Dom7 };
 
     // Css Selector string is an option on many F7 methods
@@ -41,10 +41,10 @@ declare module "framework7" {
         export interface AppMethods {
             /** open specified accordion item */
             open(el : HTMLElement | CssSelector) : void
-    
+
             /** close specified accordion item */
             close(el : HTMLElement | CssSelector) : void
-    
+
             /** toggle specified accordion item */
             toggle(el : HTMLElement | CssSelector) : void
         }
@@ -53,13 +53,13 @@ declare module "framework7" {
         export interface AppEvents {
             /** Event will be triggered when accordion content starts its opening animation */
             accordionOpen : (el : HTMLElement | CssSelector) => void
-    
+
             /** Event will be triggered after accordion content completes its opening animation */
             accordionOpened : (el : HTMLElement | CssSelector) => void
-            
+
             /** Event will be triggered when accordion content starts its closing animation */
             accordionClose : (el : HTMLElement | CssSelector) => void
-    
+
             /** Event will be triggered after accordion content completes its closing animation */
             accordionClosed : (el : HTMLElement | CssSelector) => void
         }
@@ -68,7 +68,7 @@ declare module "framework7" {
     export interface Framework7 {
         accordion: Accordian.AppMethods
     }
-    // Merge the various app events into the app-level 
+    // Merge the various app events into the app-level
     // events interface for later mapping convenience
     export interface Framework7AppEvents extends Accordian.AppEvents {}
 
@@ -128,10 +128,10 @@ declare module "framework7" {
             /** If enabled then button click will close Action Sheet */
             close:boolean
             /** Callback function that will be executed after click on this button */
-            onClick: (actions : unknown, e: unknown) => void
+            onClick: (actions : any, e: any) => void
         }
 
-        export interface Parameters { 
+        export interface Parameters {
             /** Action Sheet element. Can be useful if you already have Action Sheet element in your HTML and want to create new instance using this element*/
             el:HTMLElement
             /** Full Action Sheet HTML content string. Can be useful if you want to create Action Sheet element with custom HTML*/
@@ -163,13 +163,13 @@ declare module "framework7" {
             /** Virtual target element height (in px). Required when converstion to popover is in use without using real target element (targetEl)*/
             targetHeight:number
             /** Callback function that will be executed after click on the Action Sheet button*/
-            onClick: (actions : unknown, e: unknown) => void
+            onClick: (actions : any, e: any) => void
             /** Custom function to render Action Sheet. Must return Action Sheet html*/
             render: () => string
             /** Custom function to render Popover when conversition to popover is in use. Must return Popover html*/
             renderPopover: () => string
         }
-    
+
         export interface DomEvents {
             /** Event will be triggered when Action Sheet starts its opening animation */
             'actions:open' : (actions : ActionSheet) => void
@@ -184,10 +184,10 @@ declare module "framework7" {
         export interface AppMethods {
             /** create Action Sheet instance */
             create(
-                /** Object with action sheet parameters */ 
+                /** Object with action sheet parameters */
                 parameters : Parameters
             ) : ActionSheet;
-            
+
             /** destroy Action Sheet instance */
             destroy(el : HTMLElement | CssSelector) : void;
             /** get Action Sheet instance by HTML element */
@@ -197,7 +197,7 @@ declare module "framework7" {
             /** closes Action Sheet */
             close(el : HTMLElement | CssSelector, animate : boolean) : ActionSheet;
          }
-    
+
         export interface AppEvents {
             /** Event will be triggered when Action Sheet starts its opening animation. As an argument event handler receives action sheet instance */
             actionsOpen : (actions : ActionSheet) => void
@@ -1096,7 +1096,7 @@ declare module "framework7" {
         onClick?: () => void;
         onClose?: () => void;
     }
-    
+
     export interface SwiperOptions {
         initialSlide?: number;
         direction?: string;
@@ -1408,6 +1408,9 @@ declare module "framework7" {
     }
 
     class Framework7 {
+        dialog: any;
+        tab: any;
+
         constructor(options?: Framework7Options);
         init(): void;
 
@@ -1562,7 +1565,7 @@ declare module "framework7" {
     ///
 
     // TODO
-    
+
     export type Request = any
     export const Request: Request;
 
